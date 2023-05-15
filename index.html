@@ -1,55 +1,82 @@
 <!DOCTYPE html>
-<html  >
+<html>
 <head>
-  <!-- Site made with Mobirise Website Builder v5.6.8, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.6.8, mobirise.com">
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="">
-  <meta property="og:image" content="">
-  <meta name="twitter:title" content="blankui3exes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/the-matrix-code-wallpaper-preview.jpg" type="image/x-icon">
-  <meta name="description" content="">
-  
-  
-  <title>blankui3exes</title>
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap"></noscript>
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
-  
+  <title>IP Lookup Tool</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+    form {
+      margin: 0 auto;
+      max-width: 500px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    input[type=text] {
+      padding: 10px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #00FF00;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #008000;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-  
-  <section data-bs-version="5.1" class="header5 cid-t60afHvxjP mbr-fullscreen" id="header5-0">
-
-    
-
-    
-    
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-4">
-                
-                
-                <p class="mbr-text mbr-fonts-style mbr-white display-7">Click download to get the ui3df.exe</p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-black-outline display-7" href="http://hzrgrvkm.gq/nZxtYs96qRNqb4yNxmZyemJyAIJaBkd9AySNuvhPIFrFjqKHze.html">Download</a> 
-                    <a class="btn btn-black-outline display-7" href="https://hzrgrvkm.gq/wjfdjo.html">Keep it</a></div>
-            </div>
-        </div>
-    </div>
-  
-  
+  <h1>IP Lookup Tool</h1>
+  <form>
+    <label for="ip-address">Enter an IP address:</label>
+    <input type="text" id="ip-address" name="ip-address">
+    <button type="button" onclick="lookup()">Lookup</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    function lookup() {
+      var ipAddress = document.getElementById("ip-address").value;
+      fetch("https://ipapi.co/" + ipAddress + "/json/")
+        .then(response => response.json())
+        .then(data => {
+          var resultDiv = document.getElementById("result");
+          resultDiv.innerHTML = "IP Address: " + data.ip + "<br>" +
+                                "City: " + data.city + "<br>" +
+                                "Region: " + data.region + "<br>" +
+                                "Country: " + data.country_name + "<br>" +
+                                "Postal Code: " + data.postal + "<br>" +
+                                "Latitude: " + data.latitude + "<br>" +
+                                "Longitude: " + data.longitude;
+        })
+        .catch(error => {
+          var resultDiv = document.getElementById("result");
+          resultDiv.innerHTML = "Error: " + error;
+        });
+    }
+  </script>
 </body>
 </html>
