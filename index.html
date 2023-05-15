@@ -1,82 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IP Lookup Tool</title>
-  <style>
-    body {
-      background-color: black;
-      color: #00FF00;
-      font-family: Arial, sans-serif;
-    }
-    h1 {
-      font-size: 2.5em;
-      text-align: center;
-    }
-    form {
-      margin: 0 auto;
-      max-width: 500px;
-      text-align: center;
-    }
-    label {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 1.2em;
-    }
-    input[type=text] {
-      padding: 10px;
-      font-size: 1.2em;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 20px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #00FF00;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2em;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #008000;
-    }
-    #result {
-      margin-top: 30px;
-      font-size: 1.2em;
-    }
-  </style>
+	<title>Click for Love</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			color: #00FF00;
+		}
+		button {
+			background-color: #00FF00;
+			color: black;
+			padding: 10px 20px;
+			font-size: 18px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #008000;
+			color: white;
+		}
+	</style>
 </head>
 <body>
-  <h1>IP Lookup Tool</h1>
-  <form>
-    <label for="ip-address">Enter an IP address:</label>
-    <input type="text" id="ip-address" name="ip-address">
-    <button type="button" onclick="lookup()">Lookup</button>
-  </form>
-  <div id="result"></div>
-  <script>
-    function lookup() {
-      var ipAddress = document.getElementById("ip-address").value;
-      fetch("https://ipapi.co/" + ipAddress + "/json/")
-        .then(response => response.json())
-        .then(data => {
-          var resultDiv = document.getElementById("result");
-          resultDiv.innerHTML = "IP Address: " + data.ip + "<br>" +
-                                "City: " + data.city + "<br>" +
-                                "Region: " + data.region + "<br>" +
-                                "Country: " + data.country_name + "<br>" +
-                                "Postal Code: " + data.postal + "<br>" +
-                                "Latitude: " + data.latitude + "<br>" +
-                                "Longitude: " + data.longitude;
-        })
-        .catch(error => {
-          var resultDiv = document.getElementById("result");
-          resultDiv.innerHTML = "Error: " + error;
-        });
-    }
-  </script>
+	<h1>Click for Love</h1>
+	<button>Click Me</button>
 </body>
 </html>
